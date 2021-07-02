@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: sugarandmagic/deployment-dispatch-action@main
+      - uses: sugarandmagic/deployment-dispatch-action@v3
         with:
           organisation-name: name-of-your-org
           repository-name-to-trigger: name-of-your-repo
