@@ -1,10 +1,10 @@
 # dispatch-action
 
-A GitHub Action to dispatch a notification to another repo when a *some event* (e.g. a deployment) happens.
+A GitHub Action to dispatch a notification to another repo when *some event* (e.g. a deployment) happens.
 
 When this action is included in your repository's workflow, the specified target repo will recieve a payload describing the event. This can then be used in subsequent workflows. For example, at DAZN we use this action to notify a downstream module that it's data source has changed so it pulls those changes and republishes itself.
 
-Example:
+Example: Notify repo b when repo a is deployed
 
 In your repository:
 
@@ -34,5 +34,6 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       run: |
-        echo "GitHub Event: ${{ github.event_name }} ${{ github.event.pull_request.head.sha }}" # ...do stuff with your payload
+        echo "GitHub Event: ${{ github.event_name }} ${{ github.event.pull_request.head.sha }}" 
+        # ...do stuff with your payload
 ```
