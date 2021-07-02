@@ -20,6 +20,6 @@ runs:
   steps:
     - run: |
         curl -X POST https://api.github.com/repos/{{inputs.organisation-name}}/{{inputs.repository-name-to-trigger}}/dispatches \
-        -u ${{ private-github-token }} \
+        -u ${{ inputs.private-github-token }} \
         --data '{"event_type": "deployment", "client_payload": ${{ toJSON(github.event) }} }'
       shell: bash
