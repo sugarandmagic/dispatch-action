@@ -1,3 +1,4 @@
+# on: deployment -> use this
 name: deployment-notify
 author: Carrie Beesley <carrie@carriebeesley.com>
 description: GitHub Action to dispatch a payload to another repo on deployment event
@@ -5,9 +6,9 @@ branding:
   icon: box
   color: purple
 inputs:
-  private-npm-token:
+  private-github-token:
     description: Auth token to use with private npm registry
-    required: false
+    required: true
   repository-name-to-trigger:
     description: the name of the repo to pass the payload to
     required: true
@@ -18,8 +19,7 @@ runs:
   using: "composite"
   steps:
     - run: |
-        curl -X POST https://api.github.com/repos/{{organisation-name}}/{{repository-name-to-trigger}}/dispatches \
-        -u ${{ private-npm-token }} \
+        curl -X POST https://api.github.com/repos/{{inputs.organisation-name}}/{{inputs.repository-name-to-trigger}}/dispatches \
+        -u ${{ private-github-token }} \
         --data '{"event_type": "deployment", "client_payload": ${{ toJSON(github.event) }} }'
       shell: bash
-# on: deployment
