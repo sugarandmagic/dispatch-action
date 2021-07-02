@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: sugarandmagic/dispatch-on-event@latest
+      - uses: sugarandmagic/dispatch-action@1.0.0
         with:
           organisation-name: name-of-your-org
           repository-name-to-trigger: name-of-your-repo
