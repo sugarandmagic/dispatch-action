@@ -1,4 +1,4 @@
-# dispatch-action
+# dispatch-on-event
 
 A GitHub Action to dispatch a notification to another repo when _some event_ (e.g. a deployment) happens.
 
@@ -14,12 +14,12 @@ In your repository:
 name: trigger a dispatch
 on: deployment # this bit is important - its the event that you want to be the trigger. see above for other options
 jobs:
-  deployment-notify:
+  dispatch-on-event:
     name: dispatch on deployment
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: sugarandmagic/dispatch-action@main
+      - uses: sugarandmagic/dispatch-on-event@latest
         with:
           organisation-name: name-of-your-org
           repository-name-to-trigger: name-of-your-repo

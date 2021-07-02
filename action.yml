@@ -1,4 +1,4 @@
-name: dispatch-action
+name: dispatch-on-event
 author: Carrie Beesley <carrie@carriebeesley.com>
 description: GitHub Action to dispatch a payload to another repo on deployment event
 branding:
